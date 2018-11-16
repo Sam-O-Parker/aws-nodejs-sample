@@ -22,16 +22,8 @@ var uuid = require('node-uuid');
 var s3 = new AWS.S3();
 
 // Create a bucket and upload something into it
-var bucketName = 'node-sdk-sample-' + uuid.v4();
-var keyName = uuid.v4() + 'hello_world.txt';
+var bucketName = 'node-sdk-sample-57c2cd01-8db2-44e1-8fbd-1a4639482f01';
 
-s3.createBucket({Bucket: bucketName}, function() {
-  var params = {Bucket: bucketName, Key: keyName, Body: 'Hello World!'};
-  s3.putObject(params, function(err, data) {
-    if (err)
-      console.log(err)
-    else
-      console.log("Successfully uploaded data to " + bucketName + "/" + keyName);
   var params = {
   Bucket: bucketName, 
  };
@@ -39,5 +31,3 @@ s3.createBucket({Bucket: bucketName}, function() {
    if (err) console.log(err, err.stack); // an error occurred
    else     console.log(data);
    });
-  });
-});
