@@ -33,7 +33,7 @@ s3.createBucket({Bucket: bucketName}, function() {
     else
       console.log("Successfully uploaded data to " + bucketName + "/" + keyName);
   var params = {
-  Bucket: bucketName; 
+  Bucket: bucketName, 
  };
  s3.listObjects(params, function(err, data) {
    if (err) console.log(err, err.stack); // an error occurred
