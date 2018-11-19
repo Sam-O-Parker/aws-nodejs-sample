@@ -21,6 +21,12 @@ var uuid = require('node-uuid');
 // Create an S3 client
 var s3 = new AWS.S3();
 
+const express = require('express')
+const app = express()
+const port = 3000
+
+app.get('/', (request, response) => {
+  response.send(
 // Create a bucket and upload something into it
 var bucketName = 'node-sdk-sample-57c2cd01-8db2-44e1-8fbd-1a4639482f01';
 
@@ -31,3 +37,14 @@ var bucketName = 'node-sdk-sample-57c2cd01-8db2-44e1-8fbd-1a4639482f01';
    if (err) console.log(err, err.stack); // an error occurred
    else     console.log(data);
    });
+  )
+})
+
+app.listen(port, (err) => {
+  if (err) {
+    return console.log('something bad happened', err)
+  }
+
+  console.log(`server is listening on ${port}`)
+})
+
