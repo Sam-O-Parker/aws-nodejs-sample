@@ -32,7 +32,7 @@ const port = 3000
 console.log('yo');
 
 app.get('/', (request, response) => {
-  response.json('yo'
+  response.json(
     
     s3.listObjects(bucketName, function(err, data) {
    if (err) console.log(err, err.stack); // an error occurred
